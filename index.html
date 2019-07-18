@@ -64,12 +64,27 @@
             if (e.keyCode == 13) {
                 var val = document.getElementById("search-field").value;
 
-                if (val.indexOf(".") >= 0) {
+                if (val.indexOf("https") >= 0 || val.indexOf("http") >= 0) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    window.open(val, "_self");
+                }
+
+                else if (val.indexOf("/r/") >= 0) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    window.open("https://reddit.com" + val, "_self");
+                }
+
+                else if (val.indexOf(".") >= 0) {
                     if (val.substring(0, 1) == " ") {
                         val = val.substring(1);
                     }
                     window.open("https://" + val, "_self");
                 }
+
                 else {
                     console.log("https://google.com/search?q=" + val);
                     window.open("https://google.com/search?q=" + val, "_self");

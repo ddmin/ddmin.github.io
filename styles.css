@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
 body {
-    background-image: url("https://gitlab.com/dwt1/wallpapers/raw/master/0019.jpg");
+    background-image: url("https://gitlab.com/dwt1/wallpapers/raw/master/0013.jpg");
     margin: 0px;
 }
 
@@ -18,7 +18,7 @@ body {
     font-size: 3.5rem;
     font-weight: 600;
     font-family: "Roboto Mono";
-    color: #272727;
+    color: #fff;
     margin-bottom: .25em;
 }
 

@@ -2,7 +2,7 @@
 
 Fork of [this homepage](https://github.com/Jaredk3nt/homepage)
 
-![Screenshot](https://github.com/ddmin/ddmin.github.io/blob/master/homepage.png)
+![Screenshot](https://github.com/ddmin/ddmin.github.io/blob/master/screenshot.png)
 
 Use in conjunction with this [extension](https://addons.mozilla.org/en-US/firefox/addon/my-homepage/).
 

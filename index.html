@@ -89,6 +89,13 @@
                     window.open("https://reddit.com" + val, "_self");
                 }
 
+                else if (val.indexOf("/u/") == 0 || val.indexOf("/u/") == 1) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    window.open("https://reddit.com" + val, "_self");
+                }
+
                 else if (val.indexOf("def") == 0 || val.indexOf("def") == 1) {
                     if (val.substring(0, 1) == " ") {
                         val = val.substring(1);

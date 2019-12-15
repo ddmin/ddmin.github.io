@@ -98,32 +98,23 @@
                     window.open("https://reddit.com" + val, "_self");
                 }
 
-                else if (val.indexOf("def") == 0 || val.indexOf("def") == 1) {
+                else if (val.indexOf("/def/") == 0 || val.indexOf("/def/") == 1) {
                     if (val.substring(0, 1) == " ") {
                         val = val.substring(1);
                     }
-                    console.log(val);
-                    val = val.substring(4);
+                    val = val.substring(6);
                     window.open("https://www.merriam-webster.com/dictionary/" + val, "_self");
                 }
 
-                else if (val.indexOf("wiki") == 0 || val.indexOf("wiki") == 1) {
+                else if (val.indexOf("/wiki/") == 0 || val.indexOf("/wiki/") == 1) {
                     if (val.substring(0, 1) == " ") {
                         val = val.substring(1);
                     }
-                    val = val.substring(5).replace(" ", "_");
+                    val = val.substring(7).replace(" ", "_");
                     window.open("https://en.wikipedia.org/wiki/" + val, "_self");
                 }
 
-                else if (val.indexOf("4ch") >= 0) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
-                    val = val.substring(4);
-                    window.open("https://4chan.org" + val, "_self");
-                }
-
-                else if (val.indexOf(".") >= 0) {
+                else if (val.indexOf(".com") >= 0 || val.indexOf(".net") >= 0 || val.indexOf(".org") >= 0 || val.indexOf(".gov") >= 0) {
                     if (val.substring(0, 1) == " ") {
                         val = val.substring(1);
                     }

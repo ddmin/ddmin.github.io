@@ -8,5 +8,5 @@ Fork of [this homepage](https://github.com/Jaredk3nt/homepage)
 
 * /r/    - search for subreddit
 * /u/    - search for reddit user
-* /def/  - search for word
-* /wiki/ - search on Wikipedia
+* /def  - search for word
+* /wiki - search on Wikipedia

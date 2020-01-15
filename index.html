@@ -114,6 +114,14 @@
                     window.open("https://en.wikipedia.org/wiki/" + val, "_self");
                 }
 
+                else if (val.indexOf("/jojo") == 0 || val.indexOf("/jojo") == 1) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    val = val.substring(6).replace(" ", "_");
+                    window.open("https://jojowiki.com/" + val, "_self");
+                }
+
                 else if (
                             val.indexOf(".com") >= 0 ||
                             val.indexOf(".net") >= 0 ||

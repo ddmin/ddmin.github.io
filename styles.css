@@ -19,6 +19,14 @@ body {
     font-weight: 600;
     font-family: "Roboto Mono";
     color: #fff;
+    margin-bottom: 0em;
+}
+
+#date {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: "Roboto Mono";
+    color: #fff;
     margin-bottom: .25em;
 }
 

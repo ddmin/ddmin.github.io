@@ -198,13 +198,28 @@
         }
 
         document.addEventListener("keydown", event => {
-            if (event.keyCode == 32) {          // Spacebar code to open search
+
+            // Spacebar code to open search
+            if (event.keyCode == 32) {
                 document.getElementById('search').style.display = 'flex';
                 document.getElementById('search-field').focus();
-            } else if (event.keyCode == 27) {   // Esc to close search
+            }
+
+            // Esc to close search
+            else if (event.keyCode == 27) {
                 document.getElementById('search-field').value = '';
                 document.getElementById('search-field').blur();
                 document.getElementById('search').style.display = 'none';
+            }
+
+            // p for Pomodoro
+            else if (event.keyCode == 80) {
+                window.open("https://tomato-timer.com/", "_self");
+            }
+
+            // y for YouTube
+            else if (event.keyCode == 89) {
+                window.open("https://www.youtube.com/", "_self");
             }
         });
 

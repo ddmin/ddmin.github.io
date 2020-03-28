@@ -59,15 +59,16 @@ body {
     text-align: center;
 }
 
-.weather-container {
+.message-container {
     width: 30%;
     background-color: #272727;
     padding: 1em;
     border-radius: 3px;
     font-family: "Roboto Mono";
-    color: #fff;
+    color: #789922;
     text-align: center;
 }
+
 .inline {
     display: inline-block;
 }

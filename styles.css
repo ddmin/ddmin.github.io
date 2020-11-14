@@ -21,6 +21,8 @@ body {
     font-family: "Roboto Mono";
     color: #fff;
     margin-bottom: 0em;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #909d9d;
 }
 
 #date {
@@ -29,6 +31,8 @@ body {
     font-family: "Roboto Mono";
     color: #fff;
     margin-bottom: .25em;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #909d9d;
 }
 
 #search {

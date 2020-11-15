@@ -18,7 +18,6 @@
             return './Backgrounds/' + Math.floor(Math.random() * 17) + '.jpg';
         }
 
-        console.log("url('" + wallpaper() + "')");
         document.body.style.backgroundImage = "url('" + wallpaper() + "')";
     </script>
 
@@ -77,13 +76,6 @@
                     window.open(val, "_self");
                 }
 
-                else if (val.indexOf("/") == 0 || val.indexOf("/") == 1) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
-                    window.open("file://" + val, "_self");
-                }
-
                 else if (val.indexOf("/r/") == 0 || val.indexOf("/r/") == 1) {
                     if (val.substring(0, 1) == " ") {
                         val = val.substring(1);
@@ -128,6 +120,14 @@
             }
         }
 
+        function reverseString(str) {
+          if (str === "") // This is the terminal case that will end the recursion
+            return "";
+
+          else
+            return reverseString(str.substr(1)) + str.charAt(0);
+        }
+
         // check if search was a website
         function isWebsite(val) {
             DOMAIN_EXTENSIONS = [".cf", ".cg", ".ch", ".ci", ".ck", ".cl", ".cm", ".cn", ".co", ".com", ".cr", ".cs", ".cu", ".cv", ".cw", ".cx", ".cy", ".cz", ".dd", ".de", ".dj", ".dk", ".dm", ".do", ".dz", ".ec", ".edu", ".ee", ".eg", ".eh", ".er", ".es", ".et", ".eu", ".fi", ".fj", ".fk", ".fm", ".fo", ".fr", ".fx", ".ga", ".gb", ".gd", ".ge", ".gf", ".gg", ".gh", ".gi", ".gl", ".gm", ".gn", ".gov", ".gp", ".gq", ".gr", ".gs", ".gt", ".gu", ".gw", ".gy", ".hk", ".hm", ".hn", ".hr", ".ht", ".hu", ".id", ".ie", ".il", ".im", ".in", ".info", ".int", ".io", ".iq", ".ir", ".is", ".it", ".je", ".jm", ".jo", ".jp", ".ke", ".kg", ".kh", ".ki", ".km", ".kn", ".kp", ".kr", ".kw", ".ky", ".kz", ".la", ".lb", ".lc", ".li", ".lk", ".lr", ".ls", ".lt", ".lu", ".lv", ".ly", ".ma", ".mc", ".md", ".me", ".mg", ".mh", ".mil", ".mk", ".ml", ".mm", ".mn", ".mo", ".mp", ".mq", ".mr", ".ms", ".mt", ".mu", ".mv", ".mw", ".mx", ".my", ".mz", ".na", ".name", ".nato", ".nc", ".ne", ".net", ".nf", ".ng", ".ni", ".nl", ".no", ".nom", ".np", ".nr", ".nt", ".nu", ".nz", ".om", ".org", ".pa", ".pe", ".pf", ".pg", ".ph", ".pk", ".pl", ".pm", ".pn", ".pr", ".pro", ".ps", ".pt", ".pw", ".py", ".qa", ".re", ".ro", ".rs", ".ru", ".rw", ".sa", ".sb", ".sc", ".sd", ".se", ".sg", ".sh", ".si", ".sj", ".sk", ".sl", ".sm", ".sn", ".so", ".sr", ".ss", ".st", ".su", ".sv", ".sy", ".sz", ".tc", ".td", ".tel", ".tf", ".tg", ".th", ".tj", ".tk", ".tl", ".tm", ".tn", ".to", ".tp", ".tr", ".tt", ".tv", ".tw", ".tz", ".ua", ".ug", ".uk", ".um", ".us", ".uy", ".uz", ".va", ".vc", ".ve", ".vg", ".vi", ".vn", ".vu", ".web", ".wf", ".ws", ".xxx", ".ye", ".yt", ".yu", ".za", ".zm", ".zr", ".zw"]
@@ -137,10 +137,14 @@
                 return false
             }
 
-            // check if extension in list
+            temp = reverseString(val)
+            lastDot = temp.indexOf(".")
+            val = val.substring(val.length-lastDot-1)
+
             let ext = /\.\w+/
             ext = val.match(ext)
 
+            // check if extension in list
             if (ext == null) {
                 return false
             }

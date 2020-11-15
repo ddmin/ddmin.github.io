@@ -77,6 +77,13 @@
                     window.open(val, "_self");
                 }
 
+                else if (val.indexOf("/") == 0 || val.indexOf("/") == 1) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    window.open("file://" + val, "_self");
+                }
+
                 else if (val.indexOf("/r/") == 0 || val.indexOf("/r/") == 1) {
                     if (val.substring(0, 1) == " ") {
                         val = val.substring(1);
@@ -133,7 +140,6 @@
             // check if extension in list
             let ext = /\.\w+/
             ext = val.match(ext)
-            console.log(ext)
 
             if (ext == null) {
                 return false

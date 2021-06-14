@@ -18,20 +18,16 @@ body {
     font-size: 3.5rem;
     font-weight: 600;
     font-family: "Roboto Mono";
-    color: #fff;
+    color: #ffffff;
     margin-bottom: 0em;
-    -webkit-text-stroke-width: 0.8px;
-    -webkit-text-stroke-color: #909d9d;
 }
 
 #date {
     font-size: 1.5rem;
     font-weight: 600;
     font-family: "Roboto Mono";
-    color: #fff;
+    color: #ffffff;
     margin-bottom: .25em;
-    -webkit-text-stroke-width: 0.9px;
-    -webkit-text-stroke-color: #909d9d;
 }
 
 #search {

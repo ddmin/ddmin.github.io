@@ -97,7 +97,11 @@
                 if (e.keyCode == 13) {
                     var val = document.getElementById("search-field").value;
 
-                    if (val.indexOf("https") >= 0 || val.indexOf("http") >= 0) {
+                    if (
+                        (val.indexOf("https") > -1 &&
+                            val.indexOf("https") <= 1) ||
+                        (val.indexOf("http") > -1 && val.indexOf("http") <= 1)
+                    ) {
                         if (val.substring(0, 1) == " ") {
                             val = val.substring(1);
                         }

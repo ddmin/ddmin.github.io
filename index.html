@@ -1,530 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-        <title>Home</title>
-        <link rel="stylesheet" href="styles.css" />
-        <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <body>
-        <script>
-            // return random wallpaper
-            function wallpaper() {
-                return (
-                    "./Backgrounds/" + Math.floor(Math.random() * 17) + ".jpg"
-                );
-            }
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
+</head>
 
-            document.body.style.backgroundImage = "url('" + wallpaper() + "')";
-        </script>
+<body>
+    <script>
+        // return random wallpaper
+        function wallpaper() {
+            return (
+                "./Backgrounds/" + Math.floor(Math.random() * 17) + ".jpg"
+            );
+        }
 
-        <div id="search">
-            <input
-                id="search-field"
-                type="text"
-                name="search-field"
-                onkeypress="return search(event)"
-            />
+        document.body.style.backgroundImage = "url('" + wallpaper() + "')";
+    </script>
+
+    <div id="search">
+        <input id="search-field" type="text" name="search-field" onkeypress="return search(event)" />
+    </div>
+    <div class="container">
+        <div id="clock"></div>
+        <div id="date"></div>
+        <div class="message-container">
+            <div class="row">
+                <div id="message" class="inline">>笑ってた</div>
+            </div>
         </div>
-        <div class="container">
-            <div id="clock"></div>
-            <div id="date"></div>
-            <div class="message-container">
-                <div class="row">
-                    <div id="message" class="inline">>笑ってた</div>
+        <div class="bookmark-container">
+            <div class="bookmark-set">
+                <div class="bookmark-title"><u>Productivity</u></div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://drive.google.com/">Drive</a>
+                    <a class="bookmark" href="https://mega.nz">MEGA</a>
+                    <a class="bookmark" href="https://outlook.com/">Outlook</a>
+                    <a class="bookmark" href="https://www.notion.so/">Notion</a>
                 </div>
             </div>
-            <div class="bookmark-container">
-                <div class="bookmark-set">
-                    <div class="bookmark-title"><u>Productivity</u></div>
-                    <div class="bookmark-inner-container">
-                        <a class="bookmark" href="https://drive.google.com/"
-                            >Drive</a
-                        >
-                        <a class="bookmark" href="https://mega.nz">MEGA</a>
-                        <a class="bookmark" href="https://outlook.com/"
-                            >Outlook</a
-                        >
-                        <a class="bookmark" href="https://www.notion.so/"
-                            >Notion</a
-                        >
-                    </div>
+            <div class="bookmark-set">
+                <div class="bookmark-title"><u>Media</u></div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://youtube.com">YouTube</a>
+                    <a class="bookmark" href="https://open.spotify.com/">Spotify</a>
+                    <a class="bookmark" href="https://gogoanime.tv">GoGoAnime</a>
+                    <a class="bookmark" href="https://mangadex.org">Mangadex</a>
                 </div>
-                <div class="bookmark-set">
-                    <div class="bookmark-title"><u>Media</u></div>
-                    <div class="bookmark-inner-container">
-                        <a class="bookmark" href="https://youtube.com"
-                            >YouTube</a
-                        >
-                        <a class="bookmark" href="https://open.spotify.com/"
-                            >Spotify</a
-                        >
-                        <a class="bookmark" href="https://gogoanime.tv"
-                            >GoGoAnime</a
-                        >
-                        <a class="bookmark" href="https://mangadex.org"
-                            >Mangadex</a
-                        >
-                    </div>
-                </div>
-                <div class="bookmark-set">
-                    <div class="bookmark-title"><u>Social</u></div>
-                    <div class="bookmark-inner-container">
-                        <a class="bookmark" href="https://github.com/"
-                            >Github</a
-                        >
-                        <a class="bookmark" href="https://messenger.com"
-                            >Messenger</a
-                        >
-                        <a class="bookmark" href="https://myanimelist.net/"
-                            >MyAnimeList</a
-                        >
-                        <a class="bookmark" href="https://twitter.com/"
-                            >Twitter</a
-                        >
-                    </div>
+            </div>
+            <div class="bookmark-set">
+                <div class="bookmark-title"><u>Social</u></div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://github.com/">Github</a>
+                    <a class="bookmark" href="https://messenger.com">Messenger</a>
+                    <a class="bookmark" href="https://myanimelist.net/">MyAnimeList</a>
+                    <a class="bookmark" href="https://twitter.com/">Twitter</a>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script>
-            // Search on enter key event
-            function search(e) {
-                if (e.keyCode == 13) {
-                    var val = document.getElementById("search-field").value;
+    <script>
+        // Search on enter key event
+        function search(e) {
+            if (e.keyCode == 13) {
+                var val = document.getElementById("search-field").value;
 
-                    if (
-                        (val.indexOf("https://") > -1 &&
-                            val.indexOf("https://") <= 1) ||
-                        (val.indexOf("http://") > -1 &&
-                            val.indexOf("http://") <= 1)
-                    ) {
-                        if (val.substring(0, 1) == " ") {
-                            val = val.substring(1);
-                        }
-                        window.open(val, "_self");
-                    } else if (
-                        val.indexOf("localhost") == 0 ||
-                        val.indexOf("localhost") == 1
-                    ) {
-                        if (val.substring(0, 1) == " ") {
-                            val = val.substring(1);
-                        }
-                        window.open("http://" + val, "_self");
-                    } else if (
-                        val.indexOf("/") == 0 ||
-                        (val.indexOf("/") == 1 &&
-                            val.substring(val.length - 1) == "/")
-                    ) {
-                        if (val.substring(0, 1) == " ") {
-                            val = val.substring(1);
-                        }
-                        window.open("https://4chan.org" + val, "_self");
-                    } else if (
-                        val.indexOf("/r/") == 0 ||
-                        val.indexOf("/r/") == 1
-                    ) {
-                        if (val.substring(0, 1) == " ") {
-                            val = val.substring(1);
-                        }
-                        window.open("https://reddit.com" + val, "_self");
-                    } else if (
-                        val.indexOf("/u/") == 0 ||
-                        val.indexOf("/u/") == 1
-                    ) {
-                        if (val.substring(0, 1) == " ") {
-                            val = val.substring(1);
-                        }
-                        window.open("https://reddit.com" + val, "_self");
-                    } else if (
-                        val.indexOf("/def") == 0 ||
-                        val.indexOf("/def") == 1
-                    ) {
-                        if (val.substring(0, 1) == " ") {
-                            val = val.substring(1);
-                        }
-                        val = val.substring(5);
-                        window.open(
-                            "https://www.merriam-webster.com/dictionary/" + val,
-                            "_self"
-                        );
-                    } else if (
-                        val.indexOf("/wiki") == 0 ||
-                        val.indexOf("/wiki") == 1
-                    ) {
-                        if (val.substring(0, 1) == " ") {
-                            val = val.substring(1);
-                        }
-                        val = val.substring(6).replace(" ", "_");
-                        window.open(
-                            "https://en.wikipedia.org/wiki/" + val,
-                            "_self"
-                        );
-                    } else if (isWebsite(val)) {
-                        if (val.substring(0, 1) == " ") {
-                            val = val.substring(1);
-                        }
-                        window.open("https://" + val, "_self");
-                    } else {
-                        console.log("https://google.com/search?q=" + val);
-                        window.open(
-                            "https://google.com/search?q=" + val,
-                            "_self"
-                        );
+                if (
+                    (val.indexOf("https://") > -1 &&
+                        val.indexOf("https://") <= 1) ||
+                    (val.indexOf("http://") > -1 &&
+                        val.indexOf("http://") <= 1)
+                ) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
                     }
+                    window.open(val, "_self");
+                } else if (
+                    val.indexOf("localhost") == 0 ||
+                    val.indexOf("localhost") == 1
+                ) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    window.open("http://" + val, "_self");
+                } else if (
+                    val.indexOf("/") == 0 ||
+                    (val.indexOf("/") == 1 &&
+                        val.substring(val.length - 1) == "/")
+                ) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    window.open("https://4chan.org" + val, "_self");
+                } else if (
+                    val.indexOf("/r/") == 0 ||
+                    val.indexOf("/r/") == 1
+                ) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    window.open("https://reddit.com" + val, "_self");
+                } else if (
+                    val.indexOf("/u/") == 0 ||
+                    val.indexOf("/u/") == 1
+                ) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    window.open("https://reddit.com" + val, "_self");
+                } else if (
+                    val.indexOf("/def") == 0 ||
+                    val.indexOf("/def") == 1
+                ) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    val = val.substring(5);
+                    window.open(
+                        "https://www.merriam-webster.com/dictionary/" + val,
+                        "_self"
+                    );
+                } else if (
+                    val.indexOf("/wiki") == 0 ||
+                    val.indexOf("/wiki") == 1
+                ) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    val = val.substring(6).replace(" ", "_");
+                    window.open(
+                        "https://en.wikipedia.org/wiki/" + val,
+                        "_self"
+                    );
+                } else if (isWebsite(val)) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    window.open("https://" + val, "_self");
+                } else {
+                    console.log("https://google.com/search?q=" + val);
+                    window.open(
+                        "https://google.com/search?q=" + val,
+                        "_self"
+                    );
                 }
             }
+        }
 
-            function reverseString(str) {
-                if (str === "") return "";
-                else return reverseString(str.substr(1)) + str.charAt(0);
-            }
+        function reverseString(str) {
+            if (str === "") return "";
+            else return reverseString(str.substr(1)) + str.charAt(0);
+        }
 
-            // check if search was a website
-            function isWebsite(val) {
-                DOMAIN_EXTENSIONS = [
-                    ".cc",
-                    ".cf",
-                    ".cg",
-                    ".ch",
-                    ".ci",
-                    ".ck",
-                    ".cl",
-                    ".cm",
-                    ".cn",
-                    ".co",
-                    ".com",
-                    ".cr",
-                    ".cs",
-                    ".cu",
-                    ".cv",
-                    ".cw",
-                    ".cx",
-                    ".cy",
-                    ".cz",
-                    ".dd",
-                    ".de",
-                    ".dj",
-                    ".dk",
-                    ".dm",
-                    ".do",
-                    ".dz",
-                    ".ec",
-                    ".edu",
-                    ".ee",
-                    ".eg",
-                    ".eh",
-                    ".er",
-                    ".es",
-                    ".et",
-                    ".eu",
-                    ".fi",
-                    ".fj",
-                    ".fk",
-                    ".fm",
-                    ".fo",
-                    ".fr",
-                    ".fx",
-                    ".ga",
-                    ".gb",
-                    ".gd",
-                    ".ge",
-                    ".gf",
-                    ".gg",
-                    ".gh",
-                    ".gi",
-                    ".gl",
-                    ".gm",
-                    ".gn",
-                    ".gov",
-                    ".gp",
-                    ".gq",
-                    ".gr",
-                    ".gs",
-                    ".gt",
-                    ".gu",
-                    ".gw",
-                    ".gy",
-                    ".hk",
-                    ".hm",
-                    ".hn",
-                    ".hr",
-                    ".ht",
-                    ".hu",
-                    ".id",
-                    ".ie",
-                    ".il",
-                    ".im",
-                    ".in",
-                    ".info",
-                    ".int",
-                    ".io",
-                    ".iq",
-                    ".ir",
-                    ".is",
-                    ".it",
-                    ".je",
-                    ".jm",
-                    ".jo",
-                    ".jp",
-                    ".ke",
-                    ".kg",
-                    ".kh",
-                    ".ki",
-                    ".km",
-                    ".kn",
-                    ".kp",
-                    ".kr",
-                    ".kw",
-                    ".ky",
-                    ".kz",
-                    ".la",
-                    ".lb",
-                    ".lc",
-                    ".li",
-                    ".lk",
-                    ".lr",
-                    ".ls",
-                    ".lt",
-                    ".lu",
-                    ".lv",
-                    ".ly",
-                    ".ma",
-                    ".mc",
-                    ".md",
-                    ".me",
-                    ".mg",
-                    ".mh",
-                    ".mil",
-                    ".mk",
-                    ".ml",
-                    ".mm",
-                    ".mn",
-                    ".mo",
-                    ".moe",
-                    ".mp",
-                    ".mq",
-                    ".mr",
-                    ".ms",
-                    ".mt",
-                    ".mu",
-                    ".mv",
-                    ".mw",
-                    ".mx",
-                    ".my",
-                    ".mz",
-                    ".na",
-                    ".name",
-                    ".nato",
-                    ".nc",
-                    ".ne",
-                    ".net",
-                    ".nf",
-                    ".ng",
-                    ".ni",
-                    ".nl",
-                    ".no",
-                    ".nom",
-                    ".np",
-                    ".nr",
-                    ".nt",
-                    ".nu",
-                    ".nz",
-                    ".om",
-                    ".org",
-                    ".pa",
-                    ".pe",
-                    ".pf",
-                    ".pg",
-                    ".ph",
-                    ".pk",
-                    ".pl",
-                    ".pm",
-                    ".pn",
-                    ".pr",
-                    ".pro",
-                    ".ps",
-                    ".pt",
-                    ".pw",
-                    ".py",
-                    ".qa",
-                    ".re",
-                    ".ro",
-                    ".rs",
-                    ".ru",
-                    ".rw",
-                    ".sa",
-                    ".sb",
-                    ".sc",
-                    ".sd",
-                    ".se",
-                    ".sg",
-                    ".sh",
-                    ".si",
-                    ".sj",
-                    ".sk",
-                    ".sl",
-                    ".sm",
-                    ".sn",
-                    ".so",
-                    ".sr",
-                    ".ss",
-                    ".st",
-                    ".su",
-                    ".sv",
-                    ".sy",
-                    ".sz",
-                    ".tc",
-                    ".td",
-                    ".tel",
-                    ".tf",
-                    ".tg",
-                    ".th",
-                    ".tj",
-                    ".tk",
-                    ".tl",
-                    ".tm",
-                    ".tn",
-                    ".to",
-                    ".tp",
-                    ".tr",
-                    ".tt",
-                    ".tv",
-                    ".tw",
-                    ".tz",
-                    ".ua",
-                    ".ug",
-                    ".uk",
-                    ".um",
-                    ".us",
-                    ".uy",
-                    ".uz",
-                    ".va",
-                    ".vc",
-                    ".ve",
-                    ".vg",
-                    ".vi",
-                    ".vn",
-                    ".vu",
-                    ".web",
-                    ".wf",
-                    ".ws",
-                    ".xxx",
-                    ".ye",
-                    ".yt",
-                    ".yu",
-                    ".za",
-                    ".zm",
-                    ".zr",
-                    ".zw",
-                ];
+        // check if search was a website
+        function isWebsite(val) {
+            DOMAIN_EXTENSIONS = [
+                ".cc",
+                ".cf",
+                ".cg",
+                ".ch",
+                ".ci",
+                ".ck",
+                ".cl",
+                ".cm",
+                ".cn",
+                ".co",
+                ".com",
+                ".cr",
+                ".cs",
+                ".cu",
+                ".cv",
+                ".cw",
+                ".cx",
+                ".cy",
+                ".cz",
+                ".dd",
+                ".de",
+                ".dj",
+                ".dk",
+                ".dm",
+                ".do",
+                ".dz",
+                ".ec",
+                ".edu",
+                ".ee",
+                ".eg",
+                ".eh",
+                ".er",
+                ".es",
+                ".et",
+                ".eu",
+                ".fi",
+                ".fj",
+                ".fk",
+                ".fm",
+                ".fo",
+                ".fr",
+                ".fx",
+                ".ga",
+                ".gb",
+                ".gd",
+                ".ge",
+                ".gf",
+                ".gg",
+                ".gh",
+                ".gi",
+                ".gl",
+                ".gm",
+                ".gn",
+                ".gov",
+                ".gp",
+                ".gq",
+                ".gr",
+                ".gs",
+                ".gt",
+                ".gu",
+                ".gw",
+                ".gy",
+                ".hk",
+                ".hm",
+                ".hn",
+                ".hr",
+                ".ht",
+                ".hu",
+                ".id",
+                ".ie",
+                ".il",
+                ".im",
+                ".in",
+                ".info",
+                ".int",
+                ".io",
+                ".iq",
+                ".ir",
+                ".is",
+                ".it",
+                ".je",
+                ".jm",
+                ".jo",
+                ".jp",
+                ".ke",
+                ".kg",
+                ".kh",
+                ".ki",
+                ".km",
+                ".kn",
+                ".kp",
+                ".kr",
+                ".kw",
+                ".ky",
+                ".kz",
+                ".la",
+                ".lb",
+                ".lc",
+                ".li",
+                ".lk",
+                ".lr",
+                ".ls",
+                ".lt",
+                ".lu",
+                ".lv",
+                ".ly",
+                ".ma",
+                ".mc",
+                ".md",
+                ".me",
+                ".mg",
+                ".mh",
+                ".mil",
+                ".mk",
+                ".ml",
+                ".mm",
+                ".mn",
+                ".mo",
+                ".moe",
+                ".mp",
+                ".mq",
+                ".mr",
+                ".ms",
+                ".mt",
+                ".mu",
+                ".mv",
+                ".mw",
+                ".mx",
+                ".my",
+                ".mz",
+                ".na",
+                ".name",
+                ".nato",
+                ".nc",
+                ".ne",
+                ".net",
+                ".nf",
+                ".ng",
+                ".ni",
+                ".nl",
+                ".no",
+                ".nom",
+                ".np",
+                ".nr",
+                ".nt",
+                ".nu",
+                ".nz",
+                ".om",
+                ".org",
+                ".pa",
+                ".pe",
+                ".pf",
+                ".pg",
+                ".ph",
+                ".pk",
+                ".pl",
+                ".pm",
+                ".pn",
+                ".pr",
+                ".pro",
+                ".ps",
+                ".pt",
+                ".pw",
+                ".py",
+                ".qa",
+                ".re",
+                ".ro",
+                ".rs",
+                ".ru",
+                ".rw",
+                ".sa",
+                ".sb",
+                ".sc",
+                ".sd",
+                ".se",
+                ".sg",
+                ".sh",
+                ".si",
+                ".sj",
+                ".sk",
+                ".sl",
+                ".sm",
+                ".sn",
+                ".so",
+                ".sr",
+                ".ss",
+                ".st",
+                ".su",
+                ".sv",
+                ".sy",
+                ".sz",
+                ".tc",
+                ".td",
+                ".tel",
+                ".tf",
+                ".tg",
+                ".th",
+                ".tj",
+                ".tk",
+                ".tl",
+                ".tm",
+                ".tn",
+                ".to",
+                ".tp",
+                ".tr",
+                ".tt",
+                ".tv",
+                ".tw",
+                ".tz",
+                ".ua",
+                ".ug",
+                ".uk",
+                ".um",
+                ".us",
+                ".uy",
+                ".uz",
+                ".va",
+                ".vc",
+                ".ve",
+                ".vg",
+                ".vi",
+                ".vn",
+                ".vu",
+                ".web",
+                ".wf",
+                ".ws",
+                ".xxx", "xyz",
+                ".ye",
+                ".yt",
+                ".yu",
+                ".za",
+                ".zm",
+                ".zr",
+                ".zw",
+            ];
 
-                // check if dot or space
-                if (val.indexOf(".") < 0 || val.indexOf(" ") > 0) {
-                    return false;
-                }
-
-                temp = reverseString(val);
-                lastDot = temp.indexOf(".");
-                val = val.substring(val.length - lastDot - 1);
-
-                let ext = /\.\w+/;
-                ext = val.match(ext);
-
-                // check if extension in list
-                if (ext == null) {
-                    return false;
-                }
-
-                if (DOMAIN_EXTENSIONS.includes(ext[0])) {
-                    return true;
-                }
-
+            // check if dot or space
+            if (val.indexOf(".") < 0 || val.indexOf(" ") > 0) {
                 return false;
             }
 
-            // Get current time and format
-            function getTime() {
-                let date = new Date(),
-                    min = date.getMinutes(),
-                    sec = date.getSeconds(),
-                    hour = date.getHours();
+            temp = reverseString(val);
+            lastDot = temp.indexOf(".");
+            val = val.substring(val.length - lastDot - 1);
 
-                return (
-                    "" +
-                    (hour < 10 ? "0" + hour : hour) +
-                    ":" +
-                    (min < 10 ? "0" + min : min) +
-                    ":" +
-                    (sec < 10 ? "0" + sec : sec)
-                );
+            let ext = /\.\w+/;
+            ext = val.match(ext);
+
+            // check if extension in list
+            if (ext == null) {
+                return false;
             }
 
-            // Get current date and format
-            function getDate() {
-                let DAYS_OF_WEEK = [
-                    "Sun",
-                    "Mon",
-                    "Tue",
-                    "Wed",
-                    "Thu",
-                    "Fri",
-                    "Sat",
-                ];
-                let MONTHS = [
-                    "Jan",
-                    "Feb",
-                    "Mar",
-                    "Apr",
-                    "May",
-                    "Jun",
-                    "Jul",
-                    "Aug",
-                    "Sep",
-                    "Oct",
-                    "Nov",
-                    "Dec",
-                ];
-                let date = new Date();
-                let mon = MONTHS[date.getMonth()];
-                let day = date.getDate();
-                let year = date.getFullYear();
-                let dow = DAYS_OF_WEEK[date.getDay()];
-                if (day < 10) {
-                    day = "0" + day;
-                }
-                return "" + dow + " " + mon + " " + day + ", " + year;
+            if (DOMAIN_EXTENSIONS.includes(ext[0])) {
+                return true;
             }
 
-            // Set up the clock
+            return false;
+        }
+
+        // Get current time and format
+        function getTime() {
+            let date = new Date(),
+                min = date.getMinutes(),
+                sec = date.getSeconds(),
+                hour = date.getHours();
+
+            return (
+                "" +
+                (hour < 10 ? "0" + hour : hour) +
+                ":" +
+                (min < 10 ? "0" + min : min) +
+                ":" +
+                (sec < 10 ? "0" + sec : sec)
+            );
+        }
+
+        // Get current date and format
+        function getDate() {
+            let DAYS_OF_WEEK = [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+            ];
+            let MONTHS = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+            ];
+            let date = new Date();
+            let mon = MONTHS[date.getMonth()];
+            let day = date.getDate();
+            let year = date.getFullYear();
+            let dow = DAYS_OF_WEEK[date.getDay()];
+            if (day < 10) {
+                day = "0" + day;
+            }
+            return "" + dow + " " + mon + " " + day + ", " + year;
+        }
+
+        // Set up the clock
+        document.getElementById("clock").innerHTML = getTime();
+
+        // Set clock interval to tick clock
+        setInterval(() => {
             document.getElementById("clock").innerHTML = getTime();
+        }, 100);
 
-            // Set clock interval to tick clock
-            setInterval(() => {
-                document.getElementById("clock").innerHTML = getTime();
-            }, 100);
+        document.addEventListener("keydown", (event) => {
+            // Spacebar code to open search
+            if (event.keyCode == 32) {
+                document.getElementById("search").style.display = "flex";
+                document.getElementById("search-field").focus();
+            }
 
-            document.addEventListener("keydown", (event) => {
-                // Spacebar code to open search
-                if (event.keyCode == 32) {
-                    document.getElementById("search").style.display = "flex";
-                    document.getElementById("search-field").focus();
-                }
+            // Esc to close search
+            else if (event.keyCode == 27) {
+                document.getElementById("search-field").value = "";
+                document.getElementById("search-field").blur();
+                document.getElementById("search").style.display = "none";
+            }
+        });
 
-                // Esc to close search
-                else if (event.keyCode == 27) {
-                    document.getElementById("search-field").value = "";
-                    document.getElementById("search-field").blur();
-                    document.getElementById("search").style.display = "none";
-                }
-            });
+        // set up date
+        document.getElementById("date").innerHTML = getDate();
+    </script>
+</body>
 
-            // set up date
-            document.getElementById("date").innerHTML = getDate();
-        </script>
-    </body>
 </html>

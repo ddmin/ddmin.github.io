@@ -499,7 +499,9 @@
         });
 
         // set up date
-        document.getElementById("date").innerHTML = getDate();
+        setInterval(() => {
+            document.getElementById("date").innerHTML = getDate();
+        }, 600);
     </script>
 </body>
 

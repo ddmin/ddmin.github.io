@@ -478,6 +478,9 @@
         // Set up the clock
         document.getElementById("clock").innerHTML = getTime();
 
+        // Set up date
+        document.getElementById("date").innerHTML = getDate();
+
         // Set clock interval to tick clock
         setInterval(() => {
             document.getElementById("clock").innerHTML = getTime();

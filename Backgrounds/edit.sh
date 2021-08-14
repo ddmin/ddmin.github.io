@@ -9,7 +9,7 @@ let COUNT=FILES-2
 for i in $( eval echo {0..$COUNT} )
 do
     echo "Modifying $i.jpg"
-    convert -brightness-contrast -8x5 -blur 6x8 "$ORIGINAL/$i.jpg" "$i.jpg"
+    convert -brightness-contrast -13x1 -blur 4x15 "$ORIGINAL/$i.jpg" "$i.jpg"
 done
 
 msg="Finished in $((($SECONDS)/60))m $((($SECONDS)%60))s"

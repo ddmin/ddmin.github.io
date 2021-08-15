@@ -2,6 +2,8 @@
 # Blur and Darken wallpapers
 
 ORIGINAL="./original"
+MODIFIED="./modified"
+
 SECONDS=0
 FILES=$(ls -l "$ORIGINAL" | wc -l)
 let COUNT=FILES-2
@@ -9,7 +11,7 @@ let COUNT=FILES-2
 for i in $( eval echo {0..$COUNT} )
 do
     echo "Modifying $i.jpg"
-    convert -brightness-contrast -13x1 -blur 4x15 "$ORIGINAL/$i.jpg" "$i.jpg"
+    convert -brightness-contrast -3x2 -blur 6x2 "$ORIGINAL/$i.jpg" "$MODIFIED/$i.jpg"
 done
 
 msg="Finished in $((($SECONDS)/60))m $((($SECONDS)%60))s"

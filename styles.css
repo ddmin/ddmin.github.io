@@ -15,7 +15,8 @@ body {
 }
 
 #clock {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
+    text-shadow: 3px 3px #000000;
     font-weight: 600;
     font-family: "Roboto Mono";
     color: #ffffff;
@@ -24,6 +25,7 @@ body {
 
 #date {
     font-size: 1.5rem;
+    text-shadow: 2px 2px #000000;
     font-weight: 600;
     font-family: "Roboto Mono";
     color: #ffffff;

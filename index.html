@@ -15,8 +15,10 @@
     <script>
         // return random wallpaper
         function wallpaper() {
+            IMAGE_COUNT = 36
+
             return (
-                "./Backgrounds/" + Math.floor(Math.random() * 17) + ".jpg"
+                "./Backgrounds/modified/" + Math.floor(Math.random() * IMAGE_COUNT+1) + ".jpg"
             );
         }
 
@@ -71,7 +73,9 @@
             if (e.keyCode == 13) {
                 var val = document.getElementById("search-field").value;
 
-                if (
+                if (val.indexOf("/") == 0 || val.indexOf("/") == 1)  {
+                    window.open(val, "_self")
+                } else if (
                     (val.indexOf("https://") > -1 &&
                         val.indexOf("https://") <= 1) ||
                     (val.indexOf("http://") > -1 &&

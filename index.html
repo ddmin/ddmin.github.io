@@ -73,9 +73,7 @@
             if (e.keyCode == 13) {
                 var val = document.getElementById("search-field").value;
 
-                if (val.indexOf("/") == 0 || val.indexOf("/") == 1)  {
-                    window.open(val, "_self")
-                } else if (
+                if (
                     (val.indexOf("https://") > -1 &&
                         val.indexOf("https://") <= 1) ||
                     (val.indexOf("http://") > -1 &&

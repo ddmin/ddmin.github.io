@@ -6,7 +6,7 @@ for img in ./*.jpg
 do
     echo "Resizing $img"
     SAVE_FILE=$(echo "$img" | sed -e 's/^\.\/\(.\)/\.\/resized-\1/')
-    convert "$img" -resize 1920x "$SAVE_FILE"
+    convert "$img" -resize x1200 "$SAVE_FILE"
 done
 
 msg="Finished in $((($SECONDS)/60))m $((($SECONDS)%60))s"

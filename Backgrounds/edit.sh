@@ -8,7 +8,6 @@ SECONDS=0
 FILES=$(ls -l "$ORIGINAL" | wc -l)
 let COUNT=FILES-2
 
-# loop through directories
 for i in $( eval echo {0..$COUNT} )
 do
     echo "Modifying $i.jpg"

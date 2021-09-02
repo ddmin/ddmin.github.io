@@ -93,9 +93,8 @@
                     }
                     window.open("http://" + val, "_self");
                 } else if (
-                    val.indexOf("/") == 0 ||
-                    (val.indexOf("/") == 1 &&
-                        val.substring(val.length - 1) == "/")
+                    (val.indexOf("/") == 0 || (val.indexOf("/")) == 1) &&
+                        val.substring(val.length - 1) == "/"
                 ) {
                     if (val.substring(0, 1) == " ") {
                         val = val.substring(1);
@@ -117,6 +116,14 @@
                         val = val.substring(1);
                     }
                     window.open("https://reddit.com" + val, "_self");
+                } else if (
+                    val.indexOf("/g/") == 0 ||
+                    val.indexOf("/g/") == 1
+                ) {
+                    if (val.substring(0, 1) == " ") {
+                        val = val.substring(1);
+                    }
+                    window.open("https://nhentai.net" + val, "_self");
                 } else if (
                     val.indexOf("/def") == 0 ||
                     val.indexOf("/def") == 1

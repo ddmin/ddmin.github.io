@@ -71,7 +71,7 @@
         // Search on enter key event
         function search(e) {
             if (e.keyCode == 13) {
-                var val = document.getElementById("search-field").value;
+                var val = document.getElementById("search-field").value.trim();
 
                 // searching
                 if (
@@ -80,78 +80,45 @@
                     (val.indexOf("http://") > -1 &&
                         val.indexOf("http://") <= 1)
                 ) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
                     window.open(val, "_self");
                 } else if (
-                    val.indexOf("localhost") == 0 ||
-                    val.indexOf("localhost") == 1
+                    val.indexOf("localhost") == 0
                 ) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
                     window.open("http://" + val, "_self");
                 } else if (
-                    (val.indexOf("/") == 0 || (val.indexOf("/")) == 1) &&
+                    val.indexOf("/") == 0 &&
                         val.substring(val.length - 1) == "/"
                 ) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
                     window.open("https://4chan.org" + val, "_self");
                 } else if (
-                    val.indexOf("/r/") == 0 ||
-                    val.indexOf("/r/") == 1
+                    val.indexOf("/r/") == 0
                 ) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
                     window.open("https://reddit.com" + val, "_self");
                 } else if (
-                    val.indexOf("/u/") == 0 ||
-                    val.indexOf("/u/") == 1
+                    val.indexOf("/u/") == 0
                 ) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
                     window.open("https://reddit.com" + val, "_self");
                 } else if (
-                    val.indexOf("/g/") == 0 ||
-                    val.indexOf("/g/") == 1
+                    val.indexOf("/g/") == 0
                 ) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
                     window.open("https://nhentai.net" + val, "_self");
                 } else if (
-                    val.indexOf("/def") == 0 ||
-                    val.indexOf("/def") == 1
+                    val.indexOf("/def") == 0
                 ) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
                     val = val.substring(5);
                     window.open(
                         "https://www.merriam-webster.com/dictionary/" + val,
                         "_self"
                     );
                 } else if (
-                    val.indexOf("/wiki") == 0 ||
-                    val.indexOf("/wiki") == 1
+                    val.indexOf("/wiki") == 0
                 ) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
                     val = val.substring(6).replace(" ", "_");
                     window.open(
                         "https://en.wikipedia.org/wiki/" + val,
                         "_self"
                     );
                 } else if (isWebsite(val)) {
-                    if (val.substring(0, 1) == " ") {
-                        val = val.substring(1);
-                    }
                     window.open("http://" + val, "_self");
                 } else {
                     window.open(

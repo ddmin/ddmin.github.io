@@ -111,6 +111,14 @@
                         "_self"
                     );
                 } else if (
+                    val.indexOf("/urban") == 0
+                ) {
+                    val = val.substring(7);
+                    window.open(
+                        "https://www.urbandictionary.com/define.php?term=" + val,
+                        "_self"
+                    );
+                } else if (
                     val.indexOf("/wiki") == 0
                 ) {
                     val = val.substring(6).replace(" ", "_");
